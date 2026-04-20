@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://unpkg.com https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://peterboga.com data:; connect-src 'none'; frame-ancestors 'none';">
 <meta property="og:title" content="Above the treeline">
 <meta property="og:description" content="Notes on data, AI, and the business of enterprise sales, written from somewhere above the noise. New writing every other week.">
 <meta property="og:image" content="https://peterboga.com/og-image.png">
@@ -263,8 +264,8 @@
   </label>
 </div>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <script type="text/babel">
@@ -753,7 +754,7 @@ function Footer(){
   return (
     <footer className="footer">
       <Treeline/>
-      <div>peterboga@live.com<span className="dot">·</span>Los Angeles, California</div>
+      <div><a href="mailto:peterboga&#64;live&#46;com">peterboga&#64;live&#46;com</a><span className="dot">·</span>Los Angeles, California</div>
     </footer>
   );
 }
@@ -804,7 +805,7 @@ function AboutPage({go}){
         </div>
       </section>
       <article className="prose bio">
-        <p>I'm Peter Boga. I sell data and insights infrastructure for a living, came up through biotech and environmental science, and ski more than is probably defensible. Reach me at <a href="mailto:peterboga@live.com">peterboga@live.com</a>.</p>
+        <p>I'm Peter Boga. I sell data and insights infrastructure for a living, came up through biotech and environmental science, and ski more than is probably defensible. Reach me at <a href="mailto:peterboga&#64;live&#46;com">peterboga&#64;live&#46;com</a>.</p>
       </article>
 
       <Footer/>
@@ -860,12 +861,13 @@ function App(){
   React.useEffect(() => {
     const panel = document.getElementById("tweaks");
     const onMsg = (e) => {
+      if(e.origin !== "https://peterboga.com") return;
       if(!e.data || typeof e.data !== "object") return;
       if(e.data.type === "__activate_edit_mode") panel.classList.add("on");
       if(e.data.type === "__deactivate_edit_mode") panel.classList.remove("on");
     };
     window.addEventListener("message", onMsg);
-    window.parent.postMessage({type:"__edit_mode_available"}, "*");
+    window.parent.postMessage({type:"__edit_mode_available"}, "https://peterboga.com");
 
     const titleEl = document.getElementById("t-title");
     const titleV  = document.getElementById("t-title-v");
@@ -882,7 +884,7 @@ function App(){
     bodyEl.value  = tweaks.bodySize;  bodyV.textContent  = tweaks.bodySize;
     setGroupActive("trail", tweaks.trail, "trail");
 
-    const persist = (patch) => window.parent.postMessage({type:"__edit_mode_set_keys", edits:patch}, "*");
+    const persist = (patch) => window.parent.postMessage({type:"__edit_mode_set_keys", edits:patch}, "https://peterboga.com");
     const hTitle = () => { const v = +titleEl.value; titleV.textContent = v; setTweaks(t => ({...t, titleSize:v})); persist({titleSize:v}); };
     const hBody  = () => { const v = +bodyEl.value;  bodyV.textContent  = v; setTweaks(t => ({...t, bodySize:v}));  persist({bodySize:v}); };
     const hTrail = (e) => { const v = e.currentTarget.dataset.trail; setGroupActive("trail", v, "trail"); setTweaks(t => ({...t, trail:v})); persist({trail:v}); };
