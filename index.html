@@ -843,6 +843,27 @@ function App(){
   }, [page]);
 
   React.useEffect(() => {
+    const setMeta = (prop, val) => {
+      const el = document.querySelector(`meta[property="${prop}"]`);
+      if(el) el.setAttribute("content", val);
+    };
+    if(page.startsWith("post:")) {
+      const post = POSTS.find(p => p.slug === page.slice(5));
+      if(post) {
+        document.title = `${post.title} — Above the treeline`;
+        setMeta("og:title", post.title);
+        setMeta("og:description", post.description);
+        setMeta("og:url", `https://peterboga.com/#${post.slug}`);
+      }
+    } else {
+      document.title = "Above the treeline — by Peter Boga";
+      setMeta("og:title", "Above the treeline");
+      setMeta("og:description", "Notes on data, AI, and the business of enterprise sales, written from somewhere above the noise. New writing every other week.");
+      setMeta("og:url", "https://peterboga.com");
+    }
+  }, [page]);
+
+  React.useEffect(() => {
     try { localStorage.setItem("att:theme", theme); } catch(e){}
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
