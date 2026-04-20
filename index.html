@@ -109,7 +109,7 @@
   .nav{margin:28px auto 0;display:flex;justify-content:center;gap:26px}
   .nav button{all:unset;cursor:pointer;font-family:var(--sans);font-weight:400;
     font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
-    color:var(--muted);padding:4px 2px;transition:color .15s ease}
+    color:var(--muted);padding:12px 8px;min-height:44px;transition:color .15s ease}
   .nav button:hover{color:var(--ink)}
   .nav button[aria-current="page"]{color:var(--ink);font-weight:500;position:relative}
   .nav button[aria-current="page"]::after{
@@ -222,6 +222,18 @@
     border:1px solid var(--rule);cursor:pointer;font-family:var(--sans);
     font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink)}
   #tweaks .row button.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  @media (max-width: 600px) {
+    .site-title { font-size: clamp(32px, 9vw, 48px) !important; }
+    body { font-size: clamp(16px, 4.5vw, 19px) !important; }
+    .skier-fixed { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    .pull { padding: 48px 20px !important; }
+    .footer { margin-top: 56px !important; }
+    .page { padding-top: 48px !important; }
+    .pull-mark { font-size: 48px !important; }
+  }
 </style>
 </head>
 <body>
@@ -244,8 +256,8 @@
   </label>
 </div>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <script type="text/babel">
