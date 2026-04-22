@@ -1,10 +1,5 @@
 import React from 'react'
 
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "titleSize": 64,
-  "bodySize": 22,
-  "trail": "visible"
-}/*EDITMODE-END*/;
 
 const POSTS = [
   {slug:"ai-wont-replace-b2b-sales-reps",
@@ -440,8 +435,6 @@ function PostPage({slug, go}){
 export default function App(){
   const [page, setPage] = React.useState(() => { try { return localStorage.getItem("att:page") || "home"; } catch(e){ return "home"; } });
   const [theme, setTheme] = React.useState(() => { try { return localStorage.getItem("att:theme") || "light"; } catch(e){ return "light"; } });
-  const [tweaks, setTweaks] = React.useState(TWEAK_DEFAULTS);
-
   React.useEffect(() => {
     try { localStorage.setItem("att:page", page); } catch(e){}
     window.scrollTo({top:0, behavior:"instant"});
@@ -473,60 +466,7 @@ export default function App(){
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  React.useEffect(() => {
-    const prev = document.getElementById("tweaks-live");
-    if(prev) prev.remove();
-    const style = document.createElement("style");
-    style.id = "tweaks-live";
-    style.textContent = `.site-title{font-size:${tweaks.titleSize}px} body{font-size:${tweaks.bodySize}px}`;
-    document.head.appendChild(style);
-  }, [tweaks]);
-
   const go = (p) => setPage(p);
-
-  React.useEffect(() => {
-    const panel = document.getElementById("tweaks");
-    const onMsg = (e) => {
-      if(e.origin !== "https://peterboga.com") return;
-      if(!e.data || typeof e.data !== "object") return;
-      if(e.data.type === "__activate_edit_mode") panel.classList.add("on");
-      if(e.data.type === "__deactivate_edit_mode") panel.classList.remove("on");
-    };
-    window.addEventListener("message", onMsg);
-    window.parent.postMessage({type:"__edit_mode_available"}, "https://peterboga.com");
-
-    const titleEl = document.getElementById("t-title");
-    const titleV  = document.getElementById("t-title-v");
-    const bodyEl  = document.getElementById("t-body");
-    const bodyV   = document.getElementById("t-body-v");
-
-    const setGroupActive = (group, value, key) => {
-      panel.querySelectorAll(`[data-group="${group}"] button`).forEach(b => {
-        b.classList.toggle("active", b.dataset[key] === value);
-      });
-    };
-
-    titleEl.value = tweaks.titleSize; titleV.textContent = tweaks.titleSize;
-    bodyEl.value  = tweaks.bodySize;  bodyV.textContent  = tweaks.bodySize;
-    setGroupActive("trail", tweaks.trail, "trail");
-
-    const persist = (patch) => window.parent.postMessage({type:"__edit_mode_set_keys", edits:patch}, "https://peterboga.com");
-    const hTitle = () => { const v = +titleEl.value; titleV.textContent = v; setTweaks(t => ({...t, titleSize:v})); persist({titleSize:v}); };
-    const hBody  = () => { const v = +bodyEl.value;  bodyV.textContent  = v; setTweaks(t => ({...t, bodySize:v}));  persist({bodySize:v}); };
-    const hTrail = (e) => { const v = e.currentTarget.dataset.trail; setGroupActive("trail", v, "trail"); setTweaks(t => ({...t, trail:v})); persist({trail:v}); };
-
-    titleEl.addEventListener("input", hTitle);
-    bodyEl.addEventListener("input", hBody);
-    const trailBtns = panel.querySelectorAll('[data-group="trail"] button');
-    trailBtns.forEach(b => b.addEventListener("click", hTrail));
-
-    return () => {
-      window.removeEventListener("message", onMsg);
-      titleEl.removeEventListener("input", hTitle);
-      bodyEl.removeEventListener("input", hBody);
-      trailBtns.forEach(b => b.removeEventListener("click", hTrail));
-    };
-  }, []);
 
   const shellClass = page.startsWith("post:") ? "shell shell--post" : "shell";
   let view;
@@ -540,7 +480,7 @@ export default function App(){
 
   return (
     <div className="page" data-screen-label={page}>
-      <Scene page={page} mode={tweaks.trail}/>
+      <Scene page={page} mode="visible"/>
       <ThemeToggle theme={theme} onToggle={toggleTheme}/>
       <div className={shellClass} key={page}>{view}</div>
     </div>

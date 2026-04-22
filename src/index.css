@@ -188,20 +188,6 @@ a{color:inherit;text-decoration:none}
 .view{animation:fade .35s ease both}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
-#tweaks{position:fixed;right:20px;bottom:20px;width:248px;
-  background:#fff;border:1px solid var(--rule);padding:16px;
-  font-family:var(--sans);font-size:11px;color:var(--ink);display:none;z-index:50}
-#tweaks.on{display:block}
-#tweaks h3{margin:0 0 12px;font-size:10px;letter-spacing:0.2em;
-  text-transform:uppercase;color:var(--muted);font-weight:500}
-#tweaks label{display:block;margin-bottom:10px;letter-spacing:0.08em;
-  text-transform:uppercase;font-size:10px;color:var(--muted)}
-#tweaks input[type="range"]{width:100%;margin-top:4px}
-#tweaks .row{display:flex;gap:6px;margin-top:4px}
-#tweaks .row button{flex:1;padding:6px 4px;background:var(--bg);
-  border:1px solid var(--rule);cursor:pointer;font-family:var(--sans);
-  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink)}
-#tweaks .row button.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
 @media (max-width: 600px) {
   .site-title { font-size: clamp(32px, 9vw, 48px) !important; }
