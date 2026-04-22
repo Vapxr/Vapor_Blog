@@ -59,19 +59,9 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- scene (bg illustration layer) ---------- */
 .scene{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.scene svg{position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:min(1600px,130vw);height:100%;opacity:0.9}
+.scene svg{position:absolute;top:0;left:0;
+  width:100%;height:100%;opacity:0.9}
 
-/* ---------- scroll-locked skier (fixed in viewport) ---------- */
-.skier-fixed{
-  position:fixed;
-  left:max(20px, calc(50vw - 420px));
-  top:140px;
-  width:48px;height:64px;
-  z-index:3;
-  pointer-events:none;
-  transition:transform .12s ease-out;
-}
 
 /* ---------- masthead ---------- */
 .masthead{text-align:center;padding-top:24px}
@@ -216,7 +206,7 @@ a{color:inherit;text-decoration:none}
 @media (max-width: 600px) {
   .site-title { font-size: clamp(32px, 9vw, 48px) !important; }
   body { font-size: clamp(16px, 4.5vw, 19px) !important; }
-  .skier-fixed { display: none !important; }
+
 }
 @media (max-width: 640px) {
   .pull { padding: 48px 20px !important; }

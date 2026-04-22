@@ -3,8 +3,7 @@ import React from 'react'
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "titleSize": 64,
   "bodySize": 22,
-  "trail": "visible",
-  "skier": "on"
+  "trail": "visible"
 }/*EDITMODE-END*/;
 
 const POSTS = [
@@ -158,8 +157,8 @@ function SceneHome({op}){
   return (
     <div className="scene" style={{opacity:op}}>
       <svg viewBox="0 0 1400 1800" preserveAspectRatio="xMidYMid slice">
-        <Mountain points="M 0 320 L 120 220 L 260 300 L 420 180 L 600 280 L 780 200 L 960 290 L 1150 190 L 1320 270 L 1400 240 L 1400 360 L 0 360 Z" fill="var(--mountain-far)" opacity={0.35}/>
-        <Mountain points="M 0 400 L 160 320 L 340 380 L 520 300 L 720 380 L 900 310 L 1100 380 L 1300 320 L 1400 360 L 1400 440 L 0 440 Z" fill="var(--mountain-mid)" opacity={0.3}/>
+        <Mountain points="M 0 320 L 120 220 L 260 300 L 420 180 L 600 280 L 780 200 L 960 290 L 1150 190 L 1320 270 L 1400 240 L 1400 1800 L 0 1800 Z" fill="var(--mountain-far)" opacity={0.35}/>
+        <Mountain points="M 0 400 L 160 320 L 340 380 L 520 300 L 720 380 L 900 310 L 1100 380 L 1300 320 L 1400 360 L 1400 1800 L 0 1800 Z" fill="var(--mountain-mid)" opacity={0.3}/>
         <Sun x={1260} y={120} r={24}/>
         <Cloud x={240} y={120} s={1.2}/>
         <Cloud x={560} y={80} s={1}/>
@@ -255,28 +254,28 @@ function SceneAbout({op}){
         <Cloud x={700} y={90} s={1.5}/>
         <Cloud x={960} y={60} s={1.2}/>
         <Cloud x={260} y={240} s={1}/>
-        <Mountain points="M 0 1000 L 200 700 L 360 850 L 540 560 L 760 800 L 940 620 L 1140 820 L 1320 680 L 1400 780 L 1400 1100 L 0 1100 Z" fill="var(--mountain-far)" opacity={0.45}/>
-        <Mountain points="M 0 1100 L 180 900 L 360 1000 L 560 780 L 760 980 L 960 850 L 1160 1020 L 1340 900 L 1400 960 L 1400 1200 L 0 1200 Z" fill="var(--mountain-mid)" opacity={0.55}/>
-        <Mountain points="M 0 1240 L 220 1080 L 440 1200 L 660 1040 L 880 1200 L 1100 1080 L 1320 1220 L 1400 1180 L 1400 1320 L 0 1320 Z" fill="var(--tree)" opacity={0.7}/>
+        <Mountain points="M 0 1400 L 200 1100 L 360 1250 L 540 960 L 760 1200 L 940 1020 L 1140 1220 L 1320 1080 L 1400 1180 L 1400 1500 L 0 1500 Z" fill="var(--mountain-far)" opacity={0.45}/>
+        <Mountain points="M 0 1500 L 180 1300 L 360 1400 L 560 1180 L 760 1380 L 960 1250 L 1160 1420 L 1340 1300 L 1400 1360 L 1400 1600 L 0 1600 Z" fill="var(--mountain-mid)" opacity={0.55}/>
+        <Mountain points="M 0 1640 L 220 1480 L 440 1600 L 660 1440 L 880 1600 L 1100 1480 L 1320 1620 L 1400 1580 L 1400 1720 L 0 1720 Z" fill="var(--tree)" opacity={0.7}/>
         <g>
           {Array.from({length: 5}, (_, i) => (
-            <Pine key={`l${i}`} cx={-40 + i*46} top={1310} h={50+(i%3)*10} sw={0.9} opacity={0.6} accent={i===1}/>
+            <Pine key={`l${i}`} cx={-40 + i*46} top={1710} h={50+(i%3)*10} sw={0.9} opacity={0.6} accent={i===1}/>
           ))}
           {Array.from({length: 5}, (_, i) => (
-            <Pine key={`r${i}`} cx={1220 + i*46} top={1310} h={50+(i%3)*10} sw={0.9} opacity={0.6} accent={i===3}/>
+            <Pine key={`r${i}`} cx={1220 + i*46} top={1710} h={50+(i%3)*10} sw={0.9} opacity={0.6} accent={i===3}/>
           ))}
         </g>
-        <Pine cx={-20} top={1400} h={280} sw={1.4} opacity={0.9}/>
-        <Pine cx={70} top={1520} h={220} sw={1.3} opacity={0.85} accent/>
-        <Pine cx={1420} top={1400} h={280} sw={1.4} opacity={0.9} accent/>
-        <Pine cx={1330} top={1520} h={220} sw={1.3} opacity={0.85}/>
+        <Pine cx={-20} top={1700} h={280} sw={1.4} opacity={0.9}/>
+        <Pine cx={70} top={1750} h={220} sw={1.3} opacity={0.85} accent/>
+        <Pine cx={1420} top={1700} h={280} sw={1.4} opacity={0.9} accent/>
+        <Pine cx={1330} top={1750} h={220} sw={1.3} opacity={0.85}/>
         <g stroke="var(--tree-deep)" strokeWidth="1.2" strokeLinecap="round" fill="none">
-          <line x1="540" y1="560" x2="540" y2="500"/>
-          <path d="M 540 500 L 560 508 L 540 516 Z" fill="var(--accent)" stroke="var(--accent)"/>
+          <line x1="540" y1="960" x2="540" y2="900"/>
+          <path d="M 540 900 L 560 908 L 540 916 Z" fill="var(--accent)" stroke="var(--accent)"/>
         </g>
-        <Rock x={240} y={1270} s={1.8}/>
-        <Rock x={1060} y={1260} s={1.6}/>
-        <Rock x={1200} y={1285} s={2}/>
+        <Rock x={240} y={1670} s={1.8}/>
+        <Rock x={1060} y={1660} s={1.6}/>
+        <Rock x={1200} y={1685} s={2}/>
       </svg>
     </div>
   );
@@ -293,57 +292,6 @@ function Scene({page, mode}){
   return null;
 }
 
-function ScrollSkier({enabled}){
-  const [t, setT] = React.useState(0);
-  React.useEffect(() => {
-    const onScroll = () => {
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      setT(Math.min(1, Math.max(0, window.scrollY / max)));
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, {passive:true});
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
-  if(!enabled) return null;
-
-  const wander = Math.sin(t * Math.PI * 3) * 40;
-  const inJump = t > 0.48 && t < 0.56;
-  const jumpLift = inJump ? -18 * Math.sin((t - 0.48)/0.08 * Math.PI) : 0;
-  const tilt = Math.cos(t * Math.PI * 3) * 12;
-
-  return (
-    <div className="skier-fixed"
-         style={{
-           transform:`translate(${wander}px, ${jumpLift}px)`,
-           top: `${120 + t * (window.innerHeight - 280)}px`
-         }}>
-      <svg width="48" height="64" viewBox="-24 -32 48 64">
-        <g transform={`rotate(${tilt})`} stroke="var(--tree-deep)" strokeWidth="1.8"
-           strokeLinecap="round" fill="none">
-          <circle cx="0" cy="-18" r="4" fill="var(--accent)" stroke="var(--accent)"/>
-          <line x1="0" y1="-14" x2={inJump?"-2":"2"} y2="2"/>
-          <line x1={inJump?"-2":"2"} y1="-6" x2={inJump?"-12":"-8"} y2={inJump?"-14":"-2"}/>
-          <line x1={inJump?"-2":"2"} y1="-6" x2={inJump?"12":"10"} y2={inJump?"-14":"-2"}/>
-          <line x1={inJump?"-2":"2"} y1="2" x2={inJump?"-6":"-4"} y2={inJump?"8":"12"}/>
-          <line x1={inJump?"-2":"2"} y1="2" x2={inJump?"6":"8"} y2={inJump?"8":"12"}/>
-          <g transform={`translate(${inJump?-5:0} ${inJump?11:15.5}) rotate(-14)`}>
-            <line x1="-10" y1="-1" x2="8" y2="1" strokeWidth="2.4"/>
-          </g>
-          <g transform={`translate(${inJump?1:3} ${inJump?13.5:17}) rotate(-14)`}>
-            <line x1="-9" y1="-1" x2="9" y2="1" strokeWidth="2.4"/>
-          </g>
-          <line x1={inJump?"-12":"-8"} y1={inJump?"-14":"-2"} x2={inJump?"-14":"-10"} y2="16" stroke="var(--accent)"/>
-          <line x1={inJump?"12":"10"} y1={inJump?"-14":"-2"} x2={inJump?"14":"12"} y2="16" stroke="var(--accent)"/>
-        </g>
-      </svg>
-    </div>
-  );
-}
 
 function ThemeToggle({theme, onToggle}){
   const isDark = theme === "dark";
@@ -594,7 +542,6 @@ export default function App(){
     <div className="page" data-screen-label={page}>
       <Scene page={page} mode={tweaks.trail}/>
       <ThemeToggle theme={theme} onToggle={toggleTheme}/>
-      <ScrollSkier enabled={tweaks.skier === "on"}/>
       <div className={shellClass} key={page}>{view}</div>
     </div>
   );
