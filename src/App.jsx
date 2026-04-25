@@ -276,8 +276,8 @@ function SceneAbout({op}){
         <Pine cx={1420} top={1700} h={280} sw={1.4} opacity={0.9} accent/>
         <Pine cx={1330} top={1750} h={220} sw={1.3} opacity={0.85}/>
         <g stroke="var(--tree-deep)" strokeWidth="1.2" strokeLinecap="round" fill="none">
-          <line x1="540" y1="960" x2="540" y2="900"/>
-          <path d="M 540 900 L 560 908 L 540 916 Z" fill="var(--accent)" stroke="var(--accent)"/>
+          <line x1="560" y1="1180" x2="560" y2="1120"/>
+          <path d="M 560 1120 L 580 1128 L 560 1136 Z" fill="var(--accent)" stroke="var(--accent)"/>
         </g>
         <Rock x={240} y={1670} s={1.8}/>
         <Rock x={1060} y={1660} s={1.6}/>
