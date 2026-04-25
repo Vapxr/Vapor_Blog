@@ -376,7 +376,7 @@ function HomePage({go}){
     <div className="view">
       <Masthead go={go}/><Nav page="home" go={go}/>
       <p className="tagline">
-        Notes on data, AI, and the business of enterprise sales, written from somewhere <em>above the noise</em>. New writing every other week.
+        Field notes on sales, data, and whatever else earns the attention.
       </p>
       <p className="section-label">Latest writing</p>
       <ul className="posts">{POSTS.slice(0,3).map(p => <PostCard key={p.slug} post={p} go={go}/>)}</ul>
