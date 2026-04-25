@@ -376,7 +376,7 @@ function HomePage({go}){
     <div className="view">
       <Masthead go={go}/><Nav page="home" go={go}/>
       <p className="tagline">
-        Field notes on sales, data, and whatever else earns the attention.
+        Field notes on go-to-market, data, and whatever else earns the attention.
       </p>
       <p className="section-label">Latest writing</p>
       <ul className="posts">{POSTS.slice(0,3).map(p => <PostCard key={p.slug} post={p} go={go}/>)}</ul>
@@ -482,7 +482,7 @@ export default function App(){
     } else {
       document.title = "Above the treeline — by Peter Boga";
       setMeta("og:title", "Above the treeline");
-      setMeta("og:description", "Notes on data, AI, and the business of enterprise sales, written from somewhere above the noise. New writing every other week.");
+      setMeta("og:description", "Field notes on go-to-market, data, and whatever else earns the attention.");
       setMeta("og:url", "https://peterboga.com");
     }
   }, [page]);
