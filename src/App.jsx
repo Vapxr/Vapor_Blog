@@ -405,18 +405,7 @@ function AboutPage({go}){
       <Masthead go={go}/><Nav page="about" go={go}/>
       <div className="about-head"><h1>About</h1></div>
       <article className="prose">
-        <p>Above the treeline is where the trees thin out, the wind picks up, and the whole mountain range finally shows itself. I like the metaphor. Most writing online stops short of that. This site is my attempt to get past it, on the things I think about: data, AI, the business of enterprise sales, and occasionally Mammoth.</p>
-      </article>
-      <section className="pull">
-        <div className="pull-inner">
-          <div className="pull-mark">&ldquo;</div>
-          <div>
-            <p className="pull-quote">Most writing online stops short of the treeline. This is my attempt to get past it.</p>
-            <p className="pull-attrib">Above the treeline &middot; Peter Boga</p>
-          </div>
-        </div>
-      </section>
-      <article className="prose bio">
+        <p>Most writing online stops short of the treeline. This is my attempt to get past it.</p>
         <p>I&apos;m Peter Boga. I sell data and insights infrastructure for a living, came up through biotech and environmental science, and ski more than is probably defensible. Reach me at <a href="mailto:peterboga@live.com">peterboga@live.com</a>.</p>
       </article>
       <Footer/>
