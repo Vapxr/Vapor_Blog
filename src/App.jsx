@@ -413,6 +413,31 @@ function AboutPage({go}){
   );
 }
 
+function ShareBar({post}){
+  const [copied, setCopied] = React.useState(false);
+  const url = `https://peterboga.com/#${post.slug}`;
+  const linkedIn = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+  const twitter = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.title)}`;
+
+  function copyLink(){
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
+  return (
+    <div className="share-bar">
+      <span className="share-label">Share</span>
+      <a href={linkedIn} target="_blank" rel="noopener noreferrer" className="share-link">LinkedIn</a>
+      <a href={twitter} target="_blank" rel="noopener noreferrer" className="share-link">X / Twitter</a>
+      <button className="share-link share-copy" onClick={copyLink}>
+        {copied ? "Copied!" : "Copy link"}
+      </button>
+    </div>
+  );
+}
+
 function PostPage({slug, go}){
   const post = POSTS.find(p => p.slug === slug);
   if(!post) return (<div className="view"><Masthead go={go}/><Nav page="writing" go={go}/><p style={{textAlign:"center",marginTop:60,color:"var(--muted)"}}>Post not found.</p><Footer/></div>);
@@ -424,6 +449,7 @@ function PostPage({slug, go}){
         <h1>{post.title}</h1>
       </div>
       <article className="post-body">{POST_CONTENT[slug] ?? <p className="placeholder">Post coming soon.</p>}</article>
+      <ShareBar post={post}/>
       <div style={{textAlign:"center"}}>
         <a className="back-link" onClick={() => go("writing")}>&#8592; All writing</a>
       </div>
