@@ -2,19 +2,30 @@ import React from 'react'
 
 
 const POSTS = [
-  {slug:"ai-wont-replace-b2b-sales-reps",
-   title:"AI won't replace B2B sales reps. It'll replace the ones who already sell like AI.",
-   date:"2026-04-19",dateLabel:"April 19, 2026",
-   description:"A field-level view on which sales motions are about to get automated, and which just got more valuable."},
-  {slug:"data-quality-crisis-in-market-research",
-   title:"The data quality crisis in market research, in one chart",
-   date:"2026-04-05",dateLabel:"April 5, 2026",
-   description:"Why programmatic sampling is both the reason for the boom and the reason the floor is giving out."},
-  {slug:"biotech-degree-selling-data",
-   title:"What a biotech degree taught me about selling data",
-   date:"2026-03-22",dateLabel:"March 22, 2026",
-   description:"Sampling is sampling. The thing my MS actually prepared me for wasn't science, it was explaining small-N data to non-scientists."}
+  {slug:"buyer-thinks-its-chess",
+   title:"The buyer thinks it's chess. It isn't.",
+   date:"2026-04-25",dateLabel:"April 25, 2026",
+   description:"When a buyer comes in playing chess, the worst thing you can do is play back."}
 ];
+
+const POST_CONTENT = {
+  "buyer-thinks-its-chess": (
+    <>
+      <blockquote>
+        <p>"Chess looks like a zero-sum game; if one loses, the other wins — until a dog trots by and knocks over the table, spills the beer, and leaves you both worse off than before."</p>
+        <cite>— Roger Fisher &amp; William Ury, <em>Getting to Yes</em></cite>
+      </blockquote>
+      <p>Most buyers walk into a vendor conversation playing chess. They're focused on controlling the narrative, extracting the best price, and walking away feeling like they won. As an AE, you've more than likely felt this. The guarded answers, the crossed arms energy, the sense that they've already decided you're the opponent. You can hear it in their tone. Our job isn't to win that game. It's to flip the board entirely.</p>
+      <p>When a buyer comes in purely adversarial, you can still close the deal. But you won't get the relationship. In sales, the relationship is where everything actually happens: renewals, expansions, referrals, and the kind of implementation success that turns a client into a case study. A buyer who strong-armed their way to the lowest price and minimum commitment will find a vendor who delivers exactly that. Minimum commitment back. Here's how you change that.</p>
+      <p>Maintain the framework that you are there to help them. Two things can be true at once: I want to close the deal AND I want them to succeed. Those aren't in conflict. On the contrary, they're the same thing. The faster a prospect understands that, the better the conversation gets.</p>
+      <p>I saw this recently on a discovery call. The prospect came in guarded, like they had a lie detector sitting next to them that they felt they needed. Not because of anything I'd done, but because their last vendor had burned them. Poor data quality, a weak explanation, and the distinct feeling they'd been sold to rather than served. I could feel them waiting for me to do the same thing.</p>
+      <p>So I stopped. Instead of pushing through standard discovery questions I already knew the answers to, I asked what they actually cared about. Not just in an outcome for our service, but in a vendor relationship. What did an A-tier vendor look like to them? What had gone wrong before and why? The conversation shifted completely. By the end of the call they weren't talking to a rep. They were talking to someone who had positioned themselves as a strategic business partner.</p>
+      <p>That's the move. Not a tactic or a set of magic words. A genuine reframe. When a buyer comes in playing chess, the worst thing you can do is play back. The best thing you can do is ask the question that makes the chess board irrelevant.</p>
+      <p>That question usually sounds like: "What would a successful partnership with a vendor look like for you?" It's disarming because it's unexpected. It signals that you're not there to extract. You're there to build. And it will give you infinitely more useful information than any pricing objection ever will.</p>
+      <p>Your job isn't to win the negotiation. It's to dissolve it.</p>
+    </>
+  )
+};
 
 function Treeline(){
   return (
@@ -423,7 +434,7 @@ function PostPage({slug, go}){
         <p className="post-date">{post.dateLabel}</p>
         <h1>{post.title}</h1>
       </div>
-      <article className="post-body"><p className="placeholder">Post coming soon.</p></article>
+      <article className="post-body">{POST_CONTENT[slug] ?? <p className="placeholder">Post coming soon.</p>}</article>
       <div style={{textAlign:"center"}}>
         <a className="back-link" onClick={() => go("writing")}>&#8592; All writing</a>
       </div>
