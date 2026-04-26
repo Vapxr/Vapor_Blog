@@ -2,6 +2,10 @@ import React from 'react'
 
 
 const POSTS = [
+  {slug:"when-the-buyer-isnt-human-anymore",
+   title:"When the buyer isn't human anymore",
+   date:"2026-04-26",dateLabel:"April 26, 2026",
+   description:"Two AI agents. One bike. A 70% price gap. What Anthropic's Project Deal reveals about the future of negotiation."},
   {slug:"buyer-thinks-its-chess",
    title:"The buyer thinks it's chess. It isn't.",
    date:"2026-04-25",dateLabel:"April 25, 2026",
@@ -9,6 +13,27 @@ const POSTS = [
 ];
 
 const POST_CONTENT = {
+  "when-the-buyer-isnt-human-anymore": (
+    <>
+      <p>A bike listed on an open marketplace. One AI agent sells it for $38. Another sells the same bike for $65. Same item, same market, different model. That gap isn't a rounding error. It's 70%, and it's a preview of what's coming.</p>
+      <p>On April 24th, 2026, Anthropic published research on something they called Project Deal. The setup was straightforward: AI agents on both sides of a transaction, buying and selling in a secondary marketplace, communicating through Slack. No human in the room. Just two models negotiating in real time.</p>
+      <p>46% of participants said they would pay for an agentic service to handle their buying and selling process. That number is striking given how often people say they want to stay involved in decisions surrounding money. Apparently when it comes to the friction of negotiation, nearly half are willing to hand it off.</p>
+      <h2>What the research actually found</h2>
+      <p>Anthropic ran the experiment using two of their models, Opus 4.5 and Haiku 4.5. The performance gap was significant. Opus consistently closed at higher prices, hence the $38 vs $65 outcome on the bike. More sophisticated model, better negotiator, more revenue for the seller. Worth noting: the higher closing price didn't increase the likelihood of a sale. Opus got more per item, not more items sold.</p>
+      <p>What's equally interesting is what didn't matter: prompting. Instructing the agent to be aggressive versus cooperative made no meaningful difference in outcomes. The key driver was the model's capacity for extended thinking, not the instructions it was given. For anyone who has spent time obsessing over prompt engineering, that's a telling finding. In the early days prompts had an outsized impact on outputs. That gap is closing as model capability matures.</p>
+      <h2>What this means for marketplaces</h2>
+      <p>If you participate in secondary marketplaces, whether buying, selling, or both, AI is coming to your corner of the market. The implications cut both ways.</p>
+      <p>For sellers, sophisticated AI agents on the buying side could compress margins if those agents are optimized to extract value. Deploying a capable selling agent of your own could meaningfully increase revenue, as the bike example suggests. Model selection will matter more than most people expect.</p>
+      <p>For buyers, delegating to an agent means setting parameters upfront and trusting the model to execute. The research suggests the model you choose will drive outcomes far more than how carefully you configure it.</p>
+      <h2>The bigger question nobody is asking</h2>
+      <p>If nearly half of buyers are willing to hand the negotiation to an AI, who are you actually selling to? The agent itself? The human who configured it? The organization that deployed it?</p>
+      <p>This isn't a philosophical question. It's a practical one. An AI buying agent isn't moved by a polished deck or a well-timed follow up. It's optimizing for something specific based on parameters a human set, possibly weeks ago. Understanding what those parameters are becomes the new competitive advantage. The human who configured the agent is still your real buyer. Reach them before the agent does. That's where the relationship still matters and where the outcome is actually shaped.</p>
+      <h2>Where this goes from here</h2>
+      <p>Project Deal was a controlled study involving commodities, not complex enterprise software with long deal cycles. The findings don't map one to one onto every business context, and I'd argue that for large or complex purchases humans will want humans involved for the foreseeable future. The stakes are too high and the variables too many.</p>
+      <p>But in secondary marketplaces and transactional buying contexts, the direction is clear. Nearly half of buyers are already open to removing themselves from the negotiation entirely. The businesses that understand what agents optimize for, and who to reach before the agent enters the room, will have a real edge over those still selling the old way.</p>
+      <p>In small scale markets, the buyer might not be human anymore. The question is whether you've noticed yet.</p>
+    </>
+  ),
   "buyer-thinks-its-chess": (
     <>
       <blockquote>
