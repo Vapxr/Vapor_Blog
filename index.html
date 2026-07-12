@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://fonts.googleapis.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://peterboga.com data:; connect-src 'none'; frame-ancestors 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://fonts.googleapis.com https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' https://peterboga.com https://www.google-analytics.com data:; connect-src https://www.google-analytics.com https://analytics.google.com; frame-ancestors 'none';">
 <meta property="og:title" content="Above the treeline">
 <meta property="og:description" content="Notes on data, AI, and the business of enterprise sales, written from somewhere above the noise. New writing every other week.">
 <meta property="og:image" content="https://peterboga.com/og-image.png">
@@ -12,6 +12,15 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://peterboga.com/og-image.png">
 <title>Above the treeline — by Peter Boga</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9G96YR1CV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z9G96YR1CV');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
